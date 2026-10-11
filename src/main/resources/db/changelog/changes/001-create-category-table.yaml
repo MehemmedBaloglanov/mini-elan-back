@@ -1,0 +1,21 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-create-catagory-table
+      author: mahammad baloglanov
+      changes:
+        - createTable:
+            tableName: category
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(100)
+                  constraints:
+                    nullable: false
+                    unique: true

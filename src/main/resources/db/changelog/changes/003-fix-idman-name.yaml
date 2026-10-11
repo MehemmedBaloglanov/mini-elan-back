@@ -1,0 +1,12 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-fix-idman-name
+      author: mahammad baloglanov
+      changes:
+        - update:
+            tableName: category
+            where: name = 'Idman'
+            columns:
+              - column:
+                  name: name
+                  value: İdman

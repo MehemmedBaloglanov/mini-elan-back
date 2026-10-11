@@ -1,0 +1,36 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-insert-categories
+      author: mahammad baloglanov
+      changes:
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: Nəqliyyat
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: Elektronika
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: Ev və bağ
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: Idman
+        - insert:
+            tableName: category
+            columns:
+              - column:
+                  name: name
+                  value: Digər
+

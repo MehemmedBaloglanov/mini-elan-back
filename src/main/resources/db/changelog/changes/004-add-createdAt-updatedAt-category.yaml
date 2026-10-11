@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: 004-add-createdAt-updatedAt-category
+      author: mahammad baloglanov
+      changes:
+        - addColumn:
+            tableName: category
+            columns:
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValueComputed: current_timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  defaultValueComputed: current_timestamp
+                  constraints:
+                    nullable: false
