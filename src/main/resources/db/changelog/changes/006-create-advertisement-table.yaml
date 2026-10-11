@@ -1,0 +1,78 @@
+databaseChangeLog:
+  - changeSet:
+      id: 006-create-advertisement-table
+      author: mahammad baloglanov
+      changes:
+        - createTable:
+            tableName: advertisement
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: title
+                  type: varchar(100)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(2000)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: price
+                  type: numeric(12,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: city
+                  type: varchar(50)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: image_path
+                  type: varchar(500)
+              - column:
+                  name: category_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    references: category(id)
+                    foreignKeyName: fk_advertisement_category
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    references: users(id)
+                    foreignKeyName: fk_advertisement_user
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValueComputed: current_timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  defaultValueComputed: current_timestamp
+                  constraints:
+                    nullable: false
+        - createIndex:
+            indexName: idx_advertisement_category_id
+            tableName: advertisement
+            columns:
+              - column:
+                  name: category_id
+        - createIndex:
+            indexName: idx_advertisement_user_id
+            tableName: advertisement
+            columns:
+              - column:
+                  name: user_id
+
+
+

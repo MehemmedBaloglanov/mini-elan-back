@@ -7,3 +7,7 @@ databaseChangeLog:
       file: db/changelog/changes/003-fix-idman-name.yaml
   - include:
       file: db/changelog/changes/004-add-createdAt-updatedAt-category.yaml
+  - include:
+      file: db/changelog/changes/005-create-users-table.yaml
+  - include:
+      file: db/changelog/changes/006-create-advertisement-table.yaml
