@@ -25,6 +25,6 @@ public class AdvertisementController {
 
     @GetMapping("/{id}")
     public AdvertisementDetailResponse getAdvertisement(@PathVariable Long id){
-        return advertisementService.getAdvertisementWithId(id);
+        return advertisementService.getAdvertisementById(id);
     }
 }

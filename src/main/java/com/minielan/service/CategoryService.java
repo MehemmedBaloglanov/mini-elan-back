@@ -5,6 +5,6 @@ import com.minielan.dto.CategoryResponse;
 import java.util.List;
 
 public interface CategoryService {
-    public List<CategoryResponse> getAll();
+    List<CategoryResponse> getAllCategories();
 
 }

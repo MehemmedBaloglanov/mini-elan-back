@@ -17,7 +17,7 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Transactional(readOnly = true)
     @Override
-    public List<CategoryResponse> getAll() {
+    public List<CategoryResponse> getAllCategories() {
         return categoryRepository.findAll(Sort.by("id"))
                 .stream().map(categoryEntity ->
                         new CategoryResponse(

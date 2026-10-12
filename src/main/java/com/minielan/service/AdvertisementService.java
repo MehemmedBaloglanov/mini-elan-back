@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface AdvertisementService {
 
-    public List<AdvertisementResponse> getAllAdvertisements();
+    List<AdvertisementResponse> getAllAdvertisements();
 
-    AdvertisementDetailResponse getAdvertisementWithId(Long id);
+    AdvertisementDetailResponse getAdvertisementById(Long id);
 }

@@ -37,7 +37,7 @@ public class AdvertisementServiceImpl implements AdvertisementService{
 
     @Override
     @Transactional(readOnly = true)
-    public AdvertisementDetailResponse getAdvertisementWithId(Long id) {
+    public AdvertisementDetailResponse getAdvertisementById(Long id) {
        return advertisementRepository.findById(id)
                         .map(advertisementEntity ->
                                 new AdvertisementDetailResponse(
@@ -52,6 +52,6 @@ public class AdvertisementServiceImpl implements AdvertisementService{
                                         advertisementEntity.getUser().getPhone(),
                                         advertisementEntity.getCreatedAt(),
                                         advertisementEntity.getUpdatedAt()
-                                )).orElseThrow(()-> new AdvertisementNotFoundException("Advertisement not found with: " + id));
+                                )).orElseThrow(()-> new AdvertisementNotFoundException(id));
     }
 }
