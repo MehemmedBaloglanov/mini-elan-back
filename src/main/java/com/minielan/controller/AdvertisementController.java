@@ -1,13 +1,12 @@
 package com.minielan.controller;
 
+import com.minielan.dto.AdvertisementCreateRequest;
 import com.minielan.dto.AdvertisementDetailResponse;
 import com.minielan.dto.AdvertisementResponse;
 import com.minielan.service.AdvertisementService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,6 +16,13 @@ import java.util.List;
 public class AdvertisementController {
 
     private final AdvertisementService advertisementService;
+
+
+    @PostMapping
+    public AdvertisementDetailResponse createAdvertisement(@RequestBody @Valid AdvertisementCreateRequest request){
+        return advertisementService.createAdvertisement(request);
+    }
+
 
     @GetMapping
     public List<AdvertisementResponse> getAllAdvertisements(){

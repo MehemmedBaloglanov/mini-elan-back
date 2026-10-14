@@ -1,5 +1,6 @@
 package com.minielan.mapper;
 
+import com.minielan.dto.AdvertisementCreateRequest;
 import com.minielan.dto.AdvertisementDetailResponse;
 import com.minielan.dto.AdvertisementResponse;
 import com.minielan.entity.AdvertisementEntity;
@@ -17,4 +18,6 @@ public interface AdvertisementMapper {
     @Mapping(target = "userName" , source = "user.name")
     @Mapping(target = "userPhone" , source = "user.phone")
     AdvertisementDetailResponse toDetailResponse(AdvertisementEntity entity);
+
+    AdvertisementEntity toEntityFromCreateRequest(AdvertisementCreateRequest request);
 }

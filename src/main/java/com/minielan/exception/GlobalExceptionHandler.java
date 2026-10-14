@@ -51,6 +51,18 @@ public class GlobalExceptionHandler {
                 exception.getMethod());
         return buildResponse(HttpStatus.METHOD_NOT_ALLOWED,message,request);
     }
+
+    @ExceptionHandler(UserNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleUserNotFoundException(UserNotFoundException exception,
+                                                                     HttpServletRequest request){
+        return buildResponse(HttpStatus.NOT_FOUND,exception.getMessage(),request);
+    }
+
+    @ExceptionHandler(CategoryNotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleCategoryNotFoundException(CategoryNotFoundException exception,
+                                                                     HttpServletRequest request){
+        return buildResponse(HttpStatus.NOT_FOUND,exception.getMessage(),request);
+    }
     private ResponseEntity<ErrorResponse> buildResponse(HttpStatus status,
                                                         String message,
                                                         HttpServletRequest request){
