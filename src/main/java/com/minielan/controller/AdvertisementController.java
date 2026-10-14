@@ -6,6 +6,7 @@ import com.minielan.dto.AdvertisementResponse;
 import com.minielan.service.AdvertisementService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +20,7 @@ public class AdvertisementController {
 
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public AdvertisementDetailResponse createAdvertisement(@RequestBody @Valid AdvertisementCreateRequest request){
         return advertisementService.createAdvertisement(request);
     }

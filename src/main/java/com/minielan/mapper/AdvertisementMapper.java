@@ -19,5 +19,8 @@ public interface AdvertisementMapper {
     @Mapping(target = "userPhone" , source = "user.phone")
     AdvertisementDetailResponse toDetailResponse(AdvertisementEntity entity);
 
+    @Mapping(target = "imagePath",ignore = true)
+    @Mapping(target = "category",ignore = true)
+    @Mapping(target = "user",ignore = true)
     AdvertisementEntity toEntityFromCreateRequest(AdvertisementCreateRequest request);
 }

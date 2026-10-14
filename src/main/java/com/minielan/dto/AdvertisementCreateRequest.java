@@ -7,12 +7,11 @@ import java.time.LocalDateTime;
 
 public record AdvertisementCreateRequest(
                                         @NotBlank
-                                        @Min(5)
-                                        @Max(100)
+                                        @Size(min = 5,max = 100)
                                         String title,
 
                                         @NotBlank
-                                        @Max(2000)
+                                        @Size(max = 2000)
                                         String description,
 
                                         @NotNull
@@ -21,7 +20,7 @@ public record AdvertisementCreateRequest(
                                         BigDecimal price,
 
                                         @NotBlank
-                                        @Max(50)
+                                        @Size(max = 50)
                                         String city,
 
                                         @NotNull
