@@ -62,8 +62,8 @@ public class AdvertisementServiceImpl implements AdvertisementService{
         advertisementEntity.setCategory(category);
         advertisementEntity.setUser(user);
 
-        advertisementRepository.save(advertisementEntity);
+        AdvertisementEntity savedAdvertisement = advertisementRepository.save(advertisementEntity);
 
-        return advertisementMapper.toDetailResponse(advertisementEntity);
+        return advertisementMapper.toDetailResponse(savedAdvertisement);
     }
 }
