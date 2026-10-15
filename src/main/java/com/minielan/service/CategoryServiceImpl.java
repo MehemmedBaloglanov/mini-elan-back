@@ -1,7 +1,6 @@
 package com.minielan.service;
 
 import com.minielan.dto.CategoryResponse;
-import com.minielan.entity.CategoryEntity;
 import com.minielan.mapper.CategoryMapper;
 import com.minielan.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
