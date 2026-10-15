@@ -80,7 +80,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<ErrorResponse> handleHttpMessageNotReadableException(HttpServletRequest request){
         String message = "Malformed JSON request";
-        return buildResponse(HttpStatus.NOT_FOUND,message,request);
+        return buildResponse(HttpStatus.BAD_REQUEST,message,request);
     }
 
     @ExceptionHandler(Exception.class)
@@ -100,14 +100,14 @@ public class GlobalExceptionHandler {
     private ResponseEntity<ErrorResponse> buildResponse(HttpStatus status,
                                                         String message,
                                                         HttpServletRequest request,
-                                                        Map<String,String> fieldsErrors){
+                                                        Map<String,String> fieldErrors){
         ErrorResponse response = new ErrorResponse(
                 LocalDateTime.now(),
                 status.value(),
                 status.getReasonPhrase(),
                 message,
                 request.getRequestURI(),
-                fieldsErrors);
+                fieldErrors);
 
         return ResponseEntity.status(status).body(response);
     }
